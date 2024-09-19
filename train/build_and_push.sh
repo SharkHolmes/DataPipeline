@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # The name of our algorithm
-algorithm_name=yolov8-training-gpu
+algorithm_name=yolov8-training-gpu-shark
 
 account=$(aws sts get-caller-identity --query Account --output text)
 
 # Get the region defined in the current configuration (default to us-west-2 if none defined)
-region=$(aws configure get region)
-region=${region:-ap-northeast-2}
+#region=$(aws configure get region)
+region=${region:-ap-southeast-2}
 
 commit_tag=$(git rev-parse --short=10 HEAD)
 fullname="${account}.dkr.ecr.${region}.amazonaws.com/${algorithm_name}:${commit_tag}"
